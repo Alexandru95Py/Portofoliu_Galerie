@@ -1,0 +1,22 @@
+{% extends 'portofoliu_galerie/base.html' %}
+
+{%  block title %}Galerie{% endblock %}
+
+{% block content %}
+    <h1>Galeria mea</h1>
+    <p>Aici vor fi afisate toate lucrarile</p>
+
+    {% load static %}
+    <script src="{% static 'js/gallery.js' %}"></script>
+
+
+    <div class="gallery-container">
+        {% for tablou in tablouri %}
+            {% include 'includes/gallery_item.html' with tablou=tablou %}
+        {% empty %}
+            <p>Nu exista tablouri disponibile.</p>
+        {% endfor %}
+    </div>
+            
+
+{% endblock %}

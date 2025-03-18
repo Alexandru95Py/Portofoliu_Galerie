@@ -1,0 +1,33 @@
+{% extends 'portofoliu_galerie/base.html' %}
+
+{% block title %}Contact{% endblock %}
+
+{% block content %}
+    <section class="contact-container">
+        <h1>Contacteaza-ma</h1>
+        <p>Ai o intrebare sau vrei sa colaborezi? Trimite-mi un mesaj</p>
+
+        {% if success %}
+            <div class="success-message">
+            <p>Mesajul tau a fost trimis cu succes!</p>
+            </div>
+        {% endif %}
+
+        <form method="POST" class="contact-form">
+
+            {% csrf_token %}
+            <label for="name_id">Numele tau</label>
+            <input type="text" id="name_id" name="name" placeholder="Numele tau" required autocomplete="name">
+
+            <label for="email_id">Email-ul tau</label>
+            <input type="email" id="email_id" name="email" placeholder="Email-ul tau" required autocomplete="email">
+
+            <label for="mesaj_id">Mesajul tau</label>
+            <textarea id="mesaj_id" nume="mesaj" placeholder="Scrie mesajul tau aici..." required autocomplete="off"></textarea>
+
+            <button type="submit" class="contact-button">Trimite</button>
+        </form>
+    </section>
+    <h1>Contact</h1>
+    <p>Aici vor fi informatiile despre contact.</p>
+{% endblock %}

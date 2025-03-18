@@ -1,0 +1,14 @@
+<form class="comment-form" data-tablou-id="{{ tablou.id }}">
+    {% csrf_token %}
+    <input type="text" name="name" placeholder="Numele tău" required>
+    <textarea name="text" placeholder="Scrie un comentariu..." required></textarea>
+    <button type="submit">Trimite</button>
+</form>
+
+<div class="comentarii" id="comments-{{ tablou.id }}">
+    {% for comentariu in tablou.comentarii.all %}
+        <p><strong>{{ comentariu.name }}</strong>: {{ comentariu.text }}</p>
+    {% empty %}
+        <p id="no-comments-{{ tablou.id }}">Nu exista comentarii.</p>
+    {% endfor %}
+</div>

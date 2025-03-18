@@ -1,0 +1,15 @@
+# Ignoră fișierele de configurare sensibile
+.env
+config.json
+db.sqlite3
+*.pyc
+__pycache__/
+*.log
+
+# Ignoră fișierele media și statice
+media/
+static/
+node_modules/
+
+# Ignora folderul cu imagini
+tablouri/
