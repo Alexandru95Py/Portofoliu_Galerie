@@ -3,21 +3,21 @@ document.addEventListener("DOMContentLoaded" , function () {
 
     let gallery = document.querySelector(".gallery-container");
 
-    if(gallery) {
+   /* if(gallery) {
         gallery.style.display = "grid";
         gallery.style.gridTemplateColumns = "repeat(3, 1fr)";
         gallery.style.gap = "20px";
         gallery.style.JustifyContent = "center";
-        gallery.style.paddingBottom = "30px";
+        gallery.style.paddingBottom = "30px"; */
 
-        document.querySelectorAll(".gallery-img").forEach(img => {
+       /* document.querySelectorAll(".gallery-img").forEach(img => {
            img.style.width ="100%";
            img.style.height = "400px";
            img.style.objectFit = "cover";
            img.style.objectPosition = "center";
            img.style.display = "block";
-        });
-    }
+        }); */
+    }),
         document.querySelectorAll(".gallery-img").forEach(img => {
             img.addEventListener("mouseenter", function () {
                 this.style.transform = "scale(1.05)";
@@ -34,7 +34,7 @@ document.addEventListener("DOMContentLoaded" , function () {
         });
 
     });
-});
+
 
 document.addEventListener("DOMContentLoaded", function () {
     console.log("Galerie încărcată!"); // ✅ Verifică dacă JavaScript-ul este încărcat

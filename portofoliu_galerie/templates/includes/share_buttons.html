@@ -1,0 +1,14 @@
+<div class="share-container">
+    <a href="#" on click="ShareOnFacebook()" class="facebook-shate-button" onclick="shareOnFacebook(event)">
+        <i class="fa-brands fa-facebook fa-2x"></i>   
+    </a>
+</div>
+
+<script>
+    function shareOnFacebook(event) {
+        event.preventDefault();
+        var url = window.location.href;
+        var fbShareUrl = "https://www.facebook.com/sharer/sharer.php?u=" + encodeURIComponent (url);
+        window.open(fbShareUrl, "_blank");
+    }
+</script>

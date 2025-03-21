@@ -1,0 +1,43 @@
+{% load static %}
+<link rel="stylesheet" href="{% static 'css/style.css' %}">"
+<div class="portofolio-menu">
+    <a href="{% url 'portofoliu_picturi' %}">
+        <div class="portofolio-category">
+            <img src="{% static/images/picturi-panza.jpg %}" alt="Picturi pe panza">
+            <button class="menu-btn" onclick="loadCadegory('picturi')">Picturi pe panza</button>
+        </div>
+    </a>
+
+    <a href="{% url 'portofoliu_portrete' %}">
+        <div class="portofolio-category">
+            <img src="{% static/images/portrete-ulei.jpg %}" alt="Portrete personalizate in ulei">
+            <button class="menu-btn" onclick="loadCadegory('portrete')">Portrete personalizate</button>
+        </div>
+    </a>
+
+
+    <a href="{% url 'portofoliu_creion' %}">
+        <div class="portofolio-category">
+            <img src="{% static/images/portrete-creion.jpg %}" alt="Portrete in creion">
+            <button class="menu-btn" onclick="loadCadegory('creion')">Portrete in creion</button>
+        </div>
+    </a>
+
+    <a href="{% url 'portofoliu_ilustratii' %}">
+        <div class="portofolio-category">
+            <img src="{% static/images/illustration.jpg %}" alt="Ilustratii digitale">
+            <button class="menu-btn" onclick="loadCadegory('illustration')">Ilustratii digitale</button>
+        </div>
+    </a>
+
+    <a href="{% url 'portofoliu_nft' %}">
+        <div class="portofolio-category">
+            <img src="{% tatic/images/nft-art.jpg %}" alt="NFT-uri si arta digitala">
+            <button class="menu-btn" onclick="loadCadegory('nft')">Nft-uri si arta digitala</button>
+        </div>
+    </a>
+
+
+
+    
+</div>
