@@ -1,3 +1,4 @@
+<!--Formular pentru trimiterea commentariilor-->
 <form class="comment-form" data-tablou-id="{{ tablou.id }}">
     {% csrf_token %}
     <input type="text" name="name" placeholder="Numele tău" required>
@@ -5,6 +6,7 @@
     <button type="submit">Trimite</button>
 </form>
 
+<!--Afisarea comentariilor existente-->
 <div class="comentarii" id="comments-{{ tablou.id }}">
     {% for comentariu in tablou.comentarii.all %}
         <p><strong>{{ comentariu.name }}</strong>: {{ comentariu.text }}</p>

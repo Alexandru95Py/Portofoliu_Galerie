@@ -1,0 +1,67 @@
+/*PAGINA--DESPRE MINE--*/
+
+.about-container {
+    max-width: 800px;
+    margin: auto;
+    text-align: center;
+    padding: 40px;
+    width: 80%;
+}
+
+.profile-img {
+    width: 200px;
+    border-radius: 50%;
+    margin: 20px 0;
+    object-fit: cover;
+    height: 200px;
+    border: 5px solid rgba(255, 255, 255, 0.3);
+}
+
+.about-container p {
+    font-size: 18px;
+    line-height: 1.6;
+    margin-bottom: 15px;
+}
+
+.skills {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.skills li {
+    display: inline-block;
+    background: none;
+    color: white;
+    margin: 8px 12px;
+    border-radius: 5px;
+
+}
+
+.motto {
+    font-size: italic;
+    color: white;
+    margin: 20px 0;
+    text-align: center;
+}
+
+.cta-button {
+    display: inline-block;
+    background: #ff6600;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-decoration: none;
+
+
+}
+
+h2 {
+    text-align: center;
+    width: 100%;
+
+}
+
+

@@ -23,6 +23,9 @@ STATICFILES_DIRS = [
 
 STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles")
 
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/5.1/howto/deployment/checklist/
@@ -49,6 +52,7 @@ INSTALLED_APPS = [
     'portofoliu',
     'administrator',
     'django_extensions',
+    'rest_framework',
 ]
 
 MIDDLEWARE = [

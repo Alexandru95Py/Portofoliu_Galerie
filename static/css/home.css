@@ -1,0 +1,70 @@
+/* Scriere automata */
+
+@keyframes pulse {
+    0% { transform: scale(1); opacity: 1; }
+    50% { transform: scale(1.1); opacity: 0.8; }
+    100% { transform: scale(1); opacity: 1; }
+
+}
+
+.pulse-animation {
+    display: inline-block;
+    animation: pulse 1.2s infinite;
+    color: #ff4b2b;
+
+}
+/* carusel animat de imagini pe pag home */
+
+.carousel {
+    margin-top: -30px;
+}
+
+/* carousel home */
+
+.carousel-wrapper {
+    max-width: 900px;
+    margin: auto;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 10px rgba (0, 0, 0, 0.1);
+}
+
+.carousel-item img {
+    height: 450px;
+    object-fit: cover;
+    width: 100%;
+    margin-bottom: 140px;
+
+}
+
+/* share on facebook */
+
+
+
+.share-container {
+    text-align: center;
+    margin-top: 30px;
+    padding: 20px;
+}
+
+.facebook-share-button {
+    display: inline-block;
+    background-color: white;
+    color: white;
+    padding: 12px 20px;
+    text-decoration: none;
+    border-radius: 50%;
+    font-weight: bold;
+    font-size: 16px;
+    transition: background 0.3s;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.facebook-share-button:hover {
+    background-color: #165dbb;
+}
+
+

@@ -1,4 +1,4 @@
-# Ignoră fișierele de configurare sensibile
+# Fișiere sensibile
 .env
 config.json
 db.sqlite3
@@ -6,11 +6,23 @@ db.sqlite3
 __pycache__/
 *.log
 
-# Ignoră fișierele media și statice
+# Fișiere media și statice
 media/
-static/
-node_modules/
-
-# Ignora folderul cu imagini
+staticfiles/
 tablouri/
-/staticfiles/
+
+# Fișiere și directoare specifice IDE-urilor
+.vscode/
+.idea/
+*.sublime-workspace
+*.sublime-project
+
+# Fișiere generate de sistem
+.DS_Store
+Thumbs.db
+
+# Excludem fișierele de backup
+*.bak
+*.tmp
+*.swp
+*.docx

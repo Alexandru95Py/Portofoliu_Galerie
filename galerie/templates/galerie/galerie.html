@@ -1,22 +1,33 @@
 {% extends 'portofoliu_galerie/base.html' %}
 
-{%  block title %}Galerie{% endblock %}
+{% block title %}Galerie{% endblock %}
+
+{% load static %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/theme.css' %}">
+<link rel="stylesheet" href="{% static 'css/gallery.css' %}">
+{% endblock %}
 
 {% block content %}
+
     <h1>Galeria mea</h1>
-    <p>Aici vor fi afisate toate lucrarile</p>
+    <p>Aici vor fi afișate toate lucrările</p>
 
-    {% load static %}
-    <script src="{% static 'js/gallery.js' %}"></script>
-
+    
 
     <div class="gallery-container">
         {% for tablou in tablouri %}
-            {% include 'includes/gallery_item.html' with tablou=tablou %}
+            {% include 'galerie/includes/gallery_item.html' with tablou=tablou %}
         {% empty %}
-            <p>Nu exista tablouri disponibile.</p>
+            <p>Nu există tablouri disponibile.</p>
         {% endfor %}
     </div>
-            
-
+    
 {% endblock %}
+
+{% block extra_js %}
+<script src="{% static 'js/theme-toggle.js' %}"></script>"
+<script src="{% static 'js/gallery.js' %}"></script>
+{% endblock %}
+

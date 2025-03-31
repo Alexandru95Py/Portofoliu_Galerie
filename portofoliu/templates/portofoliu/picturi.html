@@ -1,5 +1,18 @@
 {% extends 'portofoliu/portofoliu.html' %}
+{% load static %}
+
 {% block content %}
-    <h1>Pagina pentru {{ 'Picturi pe panza' }}</h1>
-    <p>Aceasta este pagina pentru categoria {{ 'Picturi pe panza' }}</p>
+  <h1>Picturi pe panza</h1>
+
+  <div class="grid">
+    {% for proiect in proiecte %}
+      <div class="item">
+        <img src="{{ proiect.imagine.url }}" alt="{{ proiect.titlu }}" style="max-width: 300px;">
+        <h3>{{ proiect.titlu }}</h3>
+        <p>{{ proiect.descriere }}</p>
+      </div>
+    {% empty %}
+      <p>Nu există lucrări în această categorie momentan.</p>
+    {% endfor %}
+  </div>
 {% endblock %}

@@ -2,7 +2,10 @@
 
 {% block title %}Contact{% endblock %}
 
+{% load static %}
+
 {% block content %}
+
     <section class="contact-container">
         <h1>Contacteaza-ma</h1>
         <p>Ai o intrebare sau vrei sa colaborezi? Trimite-mi un mesaj</p>
@@ -12,8 +15,8 @@
             <p>Mesajul tau a fost trimis cu succes!</p>
             </div>
         {% endif %}
-
         <form method="POST" class="contact-form">
+
 
             {% csrf_token %}
             <label for="name_id">Numele tau</label>
@@ -23,11 +26,28 @@
             <input type="email" id="email_id" name="email" placeholder="Email-ul tau" required autocomplete="email">
 
             <label for="mesaj_id">Mesajul tau</label>
-            <textarea id="mesaj_id" nume="mesaj" placeholder="Scrie mesajul tau aici..." required autocomplete="off"></textarea>
+            <textarea id="mesaj_id" name="mesaj" placeholder="Scrie mesajul tau aici..." required autocomplete="off"></textarea>
 
             <button type="submit" class="contact-button">Trimite</button>
         </form>
     </section>
-    <h1>Contact</h1>
-    <p>Aici vor fi informatiile despre contact.</p>
+
+    <div class="contact-info">
+        <p>
+            <i class="fab fa-whatsapp"></i>
+            <span>+40 745 123 456</span>
+        </p>
+    </div>
+    
+
+{% endblock %}
+
+
+{% block extra_js %}
+<script src="{% static 'js/theme-toggle.js' %}"></script>"
+{% endblock %}
+
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/contact.css' %}">
 {% endblock %}

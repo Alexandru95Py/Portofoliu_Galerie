@@ -1,5 +1,14 @@
 from django.shortcuts import render
-from django.http import HttpResponse
+from rest_framework.response import Response
+from .models import Proiect
+from rest_framework.decorators import api_view
+
+
+@api_view(['GET'])
+def api_proiecte(request):
+    proiecte = Proiect.objects.all().values('id', 'titlu', 'categorie', 'descriere', 'link', 'imagine' )
+    return Response(proiecte)
+
 
 def portofoliu_home(request):
     return render(request, 'portofoliu/portofoliu.html')
@@ -8,20 +17,21 @@ def portofoliu_view(request):
     return render(request, 'portofoliu/portofoliu.html')
 
 def portofoliu_picturi(request):
-    return render(request, 'portofoliu/picturi.html')
+    proiecte = Proiect.objects.filter(categorie='ulei')
+    return render(request, 'portofoliu/picturi.html', {'proiecte': proiecte})
 
 def portofoliu_portrete(request):
-    return render(request, 'portofoliu/portrete.html')
+    proiecte = Proiect.objects.filter(categorie='portret')
+    return render(request, 'portofoliu/portrete.html', {'proiecte': proiecte})
 
 def portofoliu_creion(request):
-    return render(request, 'portofoliu/creion.html')
+    proiecte = Proiect.objects.filter(categorie='creion')
+    return render(request, 'portofoliu/creion.html', {'proiecte': proiecte})
 
 def portofoliu_ilustratii(request):
-    return render(request, 'portofoliu/ilustratii.html')
+    proiecte = Proiect.objects.filter(categorie='ilustratie')
+    return render(request, 'portofoliu/ilustratii.html', {'proiecte': proiecte})
 
 def portofoliu_nft(request):
-    return render(request, 'portofoliu/nft.html')
-
-
-
-# Create your views here.
+    proiecte = Proiect.objects.filter(categorie='nft')
+    return render(request, 'portofoliu/nft.html', {'proiecte': proiecte})

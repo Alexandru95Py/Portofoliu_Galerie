@@ -1,7 +1,10 @@
-from django.http import HttpResponse
 from django.shortcuts import render
 from django.core.mail import send_mail
 from django.conf import settings
+from rest_framework.decorators import api_view
+from rest_framework.response import Response
+from galerie.models import Tablou
+from portofoliu.models import Proiect
 
 def home(request):
     return render(request, "portofoliu_galerie/home.html")
@@ -19,8 +22,19 @@ def contact(request):
             recipient_list=['alexandru.goga18@gmail.com'],
             fail_silently=False,
         )
+
+        print("Nume", nume)
+        print("Email", email)
+        print("Mesaj", mesaj)
+
         return render(request, "portofoliu_galerie/contact.html" , {"success":True})
     return render(request, "portofoliu_galerie/contact.html")
 
 def despre(request):
     return render(request, "portofoliu_galerie/despre.html")
+
+@api_view(['GET'])
+def api_home_data(request):
+    tablouri = list(Tablou.objects.all().values('id', 'titlu', 'imagine')[:3])
+    proiecte = list(Proiect.objects.all().values('id', 'titlu', 'link')[:3])
+    mesaj = "Bine ai venit pe platforma"

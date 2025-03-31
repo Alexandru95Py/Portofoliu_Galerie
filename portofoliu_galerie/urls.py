@@ -28,6 +28,8 @@ urlpatterns = [
     path('administrator/', include('administrator.urls')),
     path('contact/', contact, name='contact'),
     path('despre/', despre, name='despre'),
+    path('api/', include('galerie.urls')),
+    path('portofoliu/', include('portofoliu.urls')),
 ]   
 
 if settings.DEBUG:

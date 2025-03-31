@@ -3,8 +3,12 @@
         <li><a href="{% url 'home' %}">Acasa</a></li>
         <li><a href="{% url 'galerie_home' %}">Galerie</a></li>
         <li><a href="{% url 'portofoliu_home' %}">Portofoliu</a></li>
-        <li><a href="{% url 'admin:index' %}">Administrator</li>
         <li><a href="{% url 'contact' %}">Contact</a></li>
         <li><a href="{% url 'despre' %}">Despre mine</a></li>
+
+        {% if user.is_authenticated and user.is_staff %}
+        <li><a href="{% url 'admin:index' %}">Administrator</a></li>
+        {% endif %}
     </ul>
 </nav>
+<button id="theme-toggle">Comuta tema</button>

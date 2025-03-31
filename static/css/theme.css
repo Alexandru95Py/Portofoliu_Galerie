@@ -1,0 +1,149 @@
+  #theme-toggle {
+    margin-top: 80px;     /* Ridică-l sau coboară-l */
+    padding: 6px 12px;
+    background-color: #444;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: 0.2s ease-in-out;
+  }
+  
+  body {
+    background: linear-gradient(to right, #cceeff, #e6f2ff); /* albastru deschis calm */
+    color: #1a1a1a;
+    font-family: 'Segoe UI', sans-serif;
+    transition: all 0.3s ease;
+}
+
+a {
+    color: #004080;
+    text-decoration: none;
+}
+
+a:hover {
+    color: #0066cc;
+    text-decoration: underline;
+}
+
+.btn {
+    background-color: #0066cc;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    padding: 10px 18px;
+    transition: background-color 0.3s;
+}
+
+.btn:hover {
+    background-color: #004a99;
+}
+
+/* ====== Dark Mode ====== */
+body.dark-mode {
+    background: linear-gradient(to right, #0f2027, #203a43, #2c5364); /* albastru închis elegant */
+    color: #f2f2f2;
+}
+
+body.dark-mode a {
+    color: white;
+}
+
+body.dark-mode a:hover {
+    color: #99e6ff;
+    text-decoration: underline;
+}
+
+body.dark-mode .btn {
+    background-color: #3385ff;
+    color: white;
+}
+
+body.dark-mode .btn:hover {
+    background-color: #1a66cc;
+}
+
+nav ul li a {
+    color: white !important;
+
+}
+
+body.dark-mode nav ul li a {
+    color: white !important;
+}
+
+body.dark-mode .comment-form input,
+body.dark-mode .comment-form textarea {
+  background-color: #2b2b2b;
+  color: #e0e0e0;
+  border: 1px solid #555;
+}
+
+body.dark-mode .comment-form input::placeholder,
+body.dark-mode .comment-form textarea::placeholder {
+  color: #999;
+}
+
+/* Comentarii afișate în dark mode */
+body.dark-mode .comentarii {
+    background-color: #2a2a2a;
+    color: #e0e0e0;
+    border: 1px solid #444;
+    box-shadow: 0 0 4px rgba(0,0,0,0.2);
+}  
+
+body.dark-mode .comentarii p {
+    background-color: #2a2a2a;
+    color: #e0e0e0;
+    border: 1px solid #444;
+    box-shadow: 0 0 4px rgba(0,0,0,0.2);
+}
+
+body.dark-mode .contact-section h1,
+body.dark-mode .contact-section h2,
+body.dark-mode .contact-section label,
+body.dark-mode .contact-section p {
+  color: #f2f2f2 !important;
+}
+
+body.dark-mode .contact-container {
+    background-color: rgba(0, 0, 0, 0.6);  /* fundal închis, ușor transparent */
+    border-radius: 12px;
+    padding: 30px;
+    color: white;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+}
+
+/* Stiluri pentru titlu și paragrafe din interior */
+body.dark-mode .contact-container h1,
+body.dark-mode .contact-container p {
+    color: #ffffff;
+}
+
+/* Inputurile și textarea */
+body.dark-mode .contact-form input,
+body.dark-mode .contact-form textarea {
+    background-color: #2c2c2c;
+    color: white;
+    border: 1px solid #555;
+}
+
+body.dark-mode .contact-form input::placeholder,
+body.dark-mode .contact-form textarea::placeholder {
+    color: #ccc;
+}
+
+/* Butonul */
+body.dark-mode .contact-form button {
+    background-color: #3388ff;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+body.dark-mode .contact-form button:hover {
+    background-color: #1a66cc;
+}

@@ -2,18 +2,26 @@
 
 {% block title %}Despre mine{% endblock %}
 
+{% load static %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/despre.css' %}">
+{% endblock %}
+
 {% block content %}
+
     <h1>Despre mine</h1>
     <p>Aici voi scrie informatii despre mine.</p>
-
 
     <blockquote class="motto">
         „Creativitatea nu are limite, doar noi ne impunem bariere.”
     </blockquote>
 
+
     <div class="about-container">
         <h1>Cine sunt eu?</h1>
-        <img src="/static/images/470585730_profil.jpg" alt="Despre mine" class="profile-img">
+        <img src="{% static 'images/470585730_profil.jpg' %}"    alt="Alexandru-profil portofoliu"   class="profile-img">
+
         <p>M-am născut și am crescut într-un sat din inima Moldovei, unde lumea era simplă, dar plină de povești. De mic, nu exista suprafață pe care să n-o transform într-o pânză – paginile cărților tatălui meu, pereții casei, podeaua rece pe care mă întindeam să desenez. Biroul nu era pentru mine, aveam nevoie de spațiu, de libertate, de senzația că ideile mele curg fără restricții.</p>
     
         <p>Talentul meu a fost repede observat și îndrumat către Școala Generală <strong>Nicolae Tonitza</strong> din Bârlad, unde am început să îmi conturez drumul artistic. Liceul de arte plastice a fost următorul pas firesc – o perioadă în care am explorat, am experimentat și am învățat ce înseamnă cu adevărat să creezi.</p>
@@ -24,7 +32,6 @@
     
         <p>Fie că este vorba de un tablou, un site sau un proiect digital inovator, scopul meu este să creez ceva unic, ceva care să inspire.</p>
     </div>
-    
     
 
     <h2>Ce pot face</h2>
