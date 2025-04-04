@@ -5,7 +5,7 @@ class Proiect(models.Model):
         ('creion', 'Desene în creion'),
         ('ulei', 'Picturi în ulei'),
         ('portret', 'Portrete'),
-        ('ilustratie', 'Ilustrații'),
+        ('ilustratie', 'ilustrații'),
         ('nft', 'NFT-uri')
     ]
 

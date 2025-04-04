@@ -4,9 +4,11 @@
     <h3 class="gallery-title">{{ tablou.titlu }}</h3>
     <img class="gallery-img" src ="{{ tablou.imagine.url }}" alt="{{ tablou.titlu }}">
     <p class="gallery-desc">{{ tablou.descriere }}</p>
-
-    {% include 'galerie/includes/like_button.html' with tablou=tablou %}
+    
+    
     {% include 'galerie/includes/comments.html' with tablou=tablou %}
+    {% include 'galerie/includes/like_button.html' with tablou=tablou %}
+    
 
 </div>
 

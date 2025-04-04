@@ -5,7 +5,11 @@ from django.http import JsonResponse
 from django.contrib.auth.decorators import login_required
 from django.views.decorators.csrf import csrf_exempt
 from rest_framework.decorators import api_view
+from rest_framework.permissions import IsAuthenticated
+from rest_framework.decorators import permission_classes
+
 from rest_framework.response import Response
+from django.views.decorators. http import require_POST
 
 def galerie_home(request):
     tablouri = Tablou.objects.all()
@@ -14,14 +18,17 @@ def galerie_home(request):
     for tablou in tablouri:
         print(f"ID: {tablou.id}, Likes: {tablou.likes}")
     return render(request, "galerie/galerie.html", {"tablouri": tablouri})
-
 @login_required
+@require_POST
+@csrf_exempt
 def adauga_like(request, tablou_id):
     tablou = get_object_or_404(Tablou, id=tablou_id)
+   
 
     if request.method == "POST":
         user = request.user
         liked = Like.objects.filter(user=user, tablou=tablou).exists()
+        print(f"User: {user}, Tablou ID: {tablou_id}, Liked: {liked}")
 
         if liked:
             Like.objects.filter(user=user, tablou=tablou).delete()
@@ -39,10 +46,14 @@ def adauga_like(request, tablou_id):
 
 @csrf_exempt
 def adauga_comentariu(request, tablou_id):
+    if not request.user.is_authenticated:
+        return JsonResponse({"success": False, "error": "Vă rog să vă logați pentru a comenta."})
+
     if request.method == "POST":
         tablou = get_object_or_404(Tablou, id=tablou_id)
         nume = request.POST.get("name", "")
         text = request.POST.get("text", "")
+        
 
         if not nume or not text:
             return JsonResponse({"success": False, "error": "Toate câmpurile sunt obligatorii"}, status=400)
@@ -54,6 +65,7 @@ def adauga_comentariu(request, tablou_id):
     return JsonResponse({"error": "Metodă invalidă"}, status=400)
 
 @api_view(['GET'])
+@permission_classes([IsAuthenticated])
 def api_tablouri(request):
     tablouri = Tablou.objects.all().values('id', 'titlu', 'descriere', 'imagine')
     return Response(tablouri)

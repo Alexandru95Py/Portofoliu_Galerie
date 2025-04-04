@@ -1,71 +1,86 @@
-/*====GALERIE ====*/
+/* container general */
+.page-wrapper {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+  box-sizing: border-box;
+}
 
+/* grid de 3 coloane */
 .gallery-container {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    justify-content: center;
-    gap: 20px;
-    padding: 20px;
+  display: grid !important;
+  grid-template-columns: repeat(3, 1fr) !important;
+  gap: 30px !important;
+  padding: 20px 0;
+  width: 100%;
+  box-sizing: border-box;
+  background-color: linear-gradient(to right, #0f2027, #203a43, #2c5364);
 }
 
+/* item individual */
 .gallery-item {
-    display: flex;
-    flex-direction :column;
-    justify-content: space-between;
-    align-items: center;
-    width: 100% !important;
-    max-width: 350px;
-    height: auto;
-    min-height: 550px;
-    border: transparent;
-    padding: 10px;
-    box-sizing: border-box;
-    background-color: transparent;
-    border-radius: 5px;
-    overflow: hidden;
-    margin-bottom: 100px;
-    
+  background-color: linear-gradient(to right, #0f2027, #203a43, #2c5364);
+  padding: 10px;
+  border-radius: 8px;
+  box-shadow: 0 0 5px rgba(0,0,0,0.1);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
-/*Imagini responsiv */
+
+/* imaginea din item */
 .gallery-img {
-    width:100% !important;
-    height: 400px !important;
-    max-height: 400px;
-    object-fit: cover;
-    object-position: center;
-    display: block;
-    transition: transform 0.5s ease-in-out !important;
-    border-radius: 5px;
-    
+  width: 100%;
+  height: auto;
+  border-radius: 5px;
+  object-fit: cover;
+  transition: transform 0.3s ease;
 }
 
+/* zoom doar pe imagine */
+.gallery-img:hover {
+  transform: scale(1.05);
+}
+
+/* titlu și descriere */
 .gallery-title {
-    position: absolute;
-    top: -10px;
-    left: 50px;
-    transform: translateX(-50%);
-    background: rgba(0, 0, 0, 0.7) !important;
-    color: white !important;
-    padding: 5px 10px !important;
-    border-radius: 5px !important;
-    width: fit-content;
-    text-align: center !important;
-    z-index: 999;
-    white-space: nowrap;
+  margin: 10px 0 5px;
+  font-weight: bold;
+  font-size: 1.2rem;
+  text-align: center;
 }
-
 
 .gallery-desc {
-    margin-top: 10px;
-    font-size: 16px;
-    color: #555;
+  font-size: 1rem;
+  text-align: center;
+  margin-bottom: 10px;
+}
+.like-section {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-top: 10px;
+}
+.like-btn {
+  padding: 6px 12px;
+  background-color: #222;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+.like-btn:hover {
+  background-color: #444;
 }
 
-/*Efect hover pe imagini*/
-.gallery-item img:hover {
-    transform: scale(1.05);
-    transition: 0.3s ease-in-out;
+
+/* Secțiuni: like & comentarii (dacă vrei margini/centrare suplimentară) */
+.like-section, .comment-section {
+  width: 100%;
+  margin-top: 10px;
 }
+
 
 .interaction-row {
     display: flex;
@@ -79,9 +94,8 @@
     flex-direction: column;
     width: 100%;
     max-width: 300px;
-    margin-top: 15px;
     align-items: center;
-    margin-top: 20px;
+    margin-top: 60px;
     height: 80px;
 }
 
@@ -115,41 +129,37 @@
 }
 
 
-.like-btn {
-  display: inline-block;
-  background-color: #151c20;
+.like-section {
+  display: flex;
   justify-content: center;
   align-items: center;
-  gap: 5px;
-  cursor: pointer;
+  padding-top: 5px;
+  border-top: 1px solid rgba (255, 255, 255, 0.1);
+  gap: 8px;
+  margin-top: 10px;
+}
+
+.like-btn {
+  background-color: #222;
   color: white;
-  font-size: 16px;
+  border: none;
   padding: 6px 12px;
   border-radius: 4px;
-  transition: color 0.3s ease;
-}
-
-.like-btn button {
-  background: none;
-  border: none;
-  color: inherit;
-  font-weight: bold;
   cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  transition: background-color 0.3s ease;
 }
-
 
 .like-btn:hover {
-    color: #ff4757;
+  background-color: #444;
 }
 
-.like-btn i {
-    font-size: 20px;
+.like-label {
+  font-weight: 500;
 }
 
-.like-count {
-    font-weight: bold;
-    font-size: 14px;
-}
   
   /* Responsive */
   @media (max-width: 768px) {

@@ -24,6 +24,7 @@ STATICFILES_DIRS = [
 STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles")
 
 MEDIA_URL = '/media/'
+
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 
@@ -31,12 +32,16 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 # See https://docs.djangoproject.com/en/5.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-$0fbsd2!jr$m@-l1fhdln$m$upjdh_&a+q#6kjmpmuh(b_fz!e'
+SECRET_KEY = os.getenv("DJANGO_SECRET_KEY", "django unsafe secret key")
+
+SECRUE_BROWSER_XSS_FILTER = True
+X_FRAME_OPTIONS = 'DENY'
+SECURE_CONTENT_TYPE_NOSNIFF = True
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['127.0.0.1', 'localhost']
 
 
 # Application definition
@@ -53,6 +58,7 @@ INSTALLED_APPS = [
     'administrator',
     'django_extensions',
     'rest_framework',
+    'debug_toolbar',
 ]
 
 MIDDLEWARE = [
@@ -70,7 +76,7 @@ ROOT_URLCONF = 'portofoliu_galerie.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [os.path.join(BASE_DIR, 'portofoliu_galerie','templates')],
+        'DIRS': [os.path.join(BASE_DIR, 'portofoliu_galerie', 'templates')],  # Corect
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -138,6 +144,9 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/5.1/howto/static-files/
 
 STATIC_URL = 'static/'
+
+# URL-ul unde utilizatorii neautentificați sunt redirecționați
+LOGIN_URL = '/accounts/login/'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field

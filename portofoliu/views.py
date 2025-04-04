@@ -2,22 +2,26 @@ from django.shortcuts import render
 from rest_framework.response import Response
 from .models import Proiect
 from rest_framework.decorators import api_view
+from rest_framework.permissions import IsAuthenticated
+from rest_framework.decorators import permission_classes
 
 
 @api_view(['GET'])
+@permission_classes([IsAuthenticated])
 def api_proiecte(request):
     proiecte = Proiect.objects.all().values('id', 'titlu', 'categorie', 'descriere', 'link', 'imagine' )
     return Response(proiecte)
 
 
 def portofoliu_home(request):
-    return render(request, 'portofoliu/portofoliu.html')
+    proiecte = Proiect.objects.all()
+    return render(request, 'portofoliu/portofoliu.html', {'proiecte': proiecte})
 
 def portofoliu_view(request):
     return render(request, 'portofoliu/portofoliu.html')
 
 def portofoliu_picturi(request):
-    proiecte = Proiect.objects.filter(categorie='ulei')
+    proiecte = Proiect.objects.filter(categorie='ulei')  # Corectăm categoria
     return render(request, 'portofoliu/picturi.html', {'proiecte': proiecte})
 
 def portofoliu_portrete(request):

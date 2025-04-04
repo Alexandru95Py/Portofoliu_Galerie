@@ -1,28 +1,42 @@
-# Fișiere sensibile
-.env
-config.json
-db.sqlite3
-*.pyc
+# Byte-compiled / optimized / DLL files
 __pycache__/
-*.log
+*.py[cod]
+*.so
 
-# Fișiere media și statice
+# Environment
+.env
+*.env
+
+# Django stuff:
+*.sqlite3
+db.sqlite3
 media/
 staticfiles/
+*.log
+
+# VS Code
+.vscode/
+
+# Secret settings
+settings_local.py
+
+# Ignoră fișierele media și statice
+static/
+node_modules/
+
+# Ignora folderul cu imagini
 tablouri/
 
-# Fișiere și directoare specifice IDE-urilor
-.vscode/
-.idea/
-*.sublime-workspace
-*.sublime-project
+# Fișiere de configurare suplimentare
+config.json
 
-# Fișiere generate de sistem
-.DS_Store
-Thumbs.db
-
-# Excludem fișierele de backup
+# Fișiere temporare și de backup
 *.bak
 *.tmp
-*.swp
-*.docx
+
+# Fișiere generate de macOS
+.DS_Store
+
+# Fișiere de build sau cache
+dist/
+build/

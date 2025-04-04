@@ -15,19 +15,29 @@
     <p>Aici vor fi afișate toate lucrările</p>
 
     
-
+<div claSS="page-wrapper">
     <div class="gallery-container">
         {% for tablou in tablouri %}
-            {% include 'galerie/includes/gallery_item.html' with tablou=tablou %}
+            <div class="gallery-item">
+                {% include 'galerie/includes/gallery_item.html' with tablou=tablou %}
+            </div>
         {% empty %}
             <p>Nu există tablouri disponibile.</p>
         {% endfor %}
     </div>
+</div>
     
 {% endblock %}
 
 {% block extra_js %}
-<script src="{% static 'js/theme-toggle.js' %}"></script>"
-<script src="{% static 'js/gallery.js' %}"></script>
+<script src="{% static 'js/theme-toggle.js' %}"></script> <!--tema dark-light-->
+
+<script src="{% static 'js/gallery_core.js' %}"></script> <!--zoom pe hover galerie-->
+
+<script src="{% static 'js/comments.js' %}"></script>  <!--sectiune de comentarii-->
+
+<script src="{% static 'js/like_button.js' %}"></script>  <!--sectiune de like-->
 {% endblock %}
+
+
 

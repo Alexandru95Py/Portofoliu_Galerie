@@ -4,6 +4,28 @@
     <input type="text" name="name" placeholder="Numele tău" required>
     <textarea name="text" placeholder="Scrie un comentariu..." required></textarea>
     <button type="submit">Trimite</button>
+    <div id="global-error-msg" style="color:red; display:none; position:fixed; top:10px; left:50%; transform:translateX(-50%); background-color:white; border:1px solid red; padding:10px; z-index:1000;">
+        Te rugăm să te autentifici pentru a lăsa un comentariu. 
+        <a href="{% url 'login' %}" style="color:blue; text-decoration:underline;">Autentifică-te aici</a>.
+        <button id="close-error-msg" style="margin-left:10px; background:none; border:none; color:blue; cursor:pointer;">x</button>
+    </div>
+    <script>
+        document.querySelectorAll('.comment-form').forEach(function(form) {
+            form.addEventListener('submit', function(event) {
+                const isAuthenticated = "{{ user.is_authenticated|lower }}" === "true"; // Django template variable
+                if (!isAuthenticated) {
+                    event.preventDefault();
+                    const errorMsg = document.getElementById('global-error-msg');
+                    errorMsg.style.display = 'block';
+                }
+            });
+        });
+
+        document.getElementById('close-error-msg').addEventListener('click', function() {
+            const errorMsg = document.getElementById('global-error-msg');
+            errorMsg.style.display = 'none';
+        });
+    </script>
 </form>
 
 <!--Afisarea comentariilor existente-->

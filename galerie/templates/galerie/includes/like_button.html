@@ -1,5 +1,11 @@
-<div class="Like-section">
+{% load static %}
+<div class="like-section">
     <div class="like-btn">
-        <button class="like-action">TEST LIKE</button>
+        <button class="like-action" data-tablou-id="{{ tablou.id }}">
+            <i class="fas fa-thumbs-up"></i>
+            <span id="like-count-{{ tablou.id }}">0</span>
+            <span class="like-label">Like</span>
+        </button>
     </div>
 </div>
+<div class="like-message" id="like-message-{{ tablou.id }}" style="display: none;"></div>

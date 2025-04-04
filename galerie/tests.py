@@ -47,11 +47,18 @@ class LikeFunctionalityTest(TestCase):
 
     def test_remove_like(self):
         self.client.login(username="testuser", password="testpassword")
-        Like.objects.create(user=self.user, tablou=self.tablou)
+
+        # Creează like-ul prin endpoint
+        self.client.post(reverse('adauga_like', args=[self.tablou.id]))
+
+        # A doua oară, îl elimină
         response = self.client.post(reverse('adauga_like', args=[self.tablou.id]))
+
         self.assertEqual(response.status_code, 200)
         self.tablou.refresh_from_db()
         self.assertEqual(self.tablou.likes, 0)
+
+
 
 class CommentFunctionalityTest(TestCase):
     def setUp(self):

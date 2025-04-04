@@ -16,6 +16,13 @@
 
 {% include 'portofoliu/portofoliu_meniu.html' %}
 
+{% for proiect in proiecte %}
+    <div class="proiect">
+<h2>{{ proiect.titlu }}</h2>
+        <p>{{ proiect.descriere }}</p>
+    </div>
+{% endfor %}
+
 <!-- Adăugăm fișierul JS pentru carusel -->
 <script src="{% static 'js/portofoliu.js' %}"></script>
 
@@ -27,6 +34,6 @@
 {% endblock %}
 
 {% block extra_js %}
-<script src="{% static 'js/theme-toggle.js' %}"></script>"
+<script src="{% static 'js/theme-toggle.js' %}"></script>
 {% endblock %}
 
