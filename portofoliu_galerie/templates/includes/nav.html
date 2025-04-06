@@ -10,5 +10,18 @@
         <li><a href="{% url 'admin:index' %}">Administrator</a></li>
         {% endif %}
     </ul>
+
+    {% if user.is_authenticated %}
+{% load static %}
+    <link rel="stylesheet" href="{% static 'css/nav.css' %}">
+   
+    <form method="post" action="{% url 'delogare' %}" class="logout-form">
+        {% csrf_token %}
+        <button type="submit" class="auth-logout-button">Deconectează-te</button>
+    </form>
+{% else %}
+    <p>Nu ești autentificat. <a href="{% url 'autentificare' %}">Autentifică-te</a></p>
+{% endif %}
+
 </nav>
 <button id="theme-toggle">Comuta tema</button>

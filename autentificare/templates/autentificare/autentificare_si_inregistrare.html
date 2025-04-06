@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/autentificare.css' %}">
+    <title>Autentificare și Înregistrare</title>
+</head>
+<body>
+    <div class="auth-container">
+        <!-- Afișarea mesajelor generale -->
+        {% if messages %}
+            <div class="alert success">
+                <span class="close-btn" onclick="this.parentElement.style.display='none';">&times;</span>
+                {% for message in messages %}
+                    <p>{{ message }}</p>
+                {% endfor %}
+            </div>
+        {% endif %}
+
+        <!-- Autentificare -->
+        <h2>Autentificare</h2>
+        <form method="post">
+            {% csrf_token %}
+            {{ form_autentificare.as_p }}
+            <button type="submit" name="autentificare">Autentifică-te</button>
+        </form>
+
+        <!-- Înregistrare -->
+        <h2>Nu ai cont? Inregistreaza-te aici!</h2>
+        <form method="post">
+            {% csrf_token %}
+            {{ form_inregistrare.as_p }}
+            <button type="submit" name="inregistrare">Înregistrează-te</button>
+        </form>
+
+        <!-- Link către pagina principală -->
+        <p><a href="{% url 'home' %}">Înapoi la pagina principală</a></p>
+    </div>
+</body>
+</html>

@@ -22,15 +22,16 @@
 /* carousel home */
 
 .carousel-wrapper {
-    max-width: 900px;
+    max-width: 95%; /* Lățimea caruselului aproape cât întreaga pagină */
     margin: auto;
     border-radius: 12px;
     overflow: hidden;
-    box-shadow: 0 4px 10px rgba (0, 0, 0, 0.1);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    margin-top: 25px;
 }
 
 .carousel-item img {
-    height: 450px;
+    height: 600px;
     object-fit: cover;
     width: 100%;
     margin-bottom: 140px;
@@ -38,8 +39,6 @@
 }
 
 /* share on facebook */
-
-
 
 .share-container {
     text-align: center;
@@ -50,7 +49,7 @@
 .facebook-share-button {
     display: inline-block;
     background-color: white;
-    color: white;
+    color: #165dbb; /* Changed text color for better visibility */
     padding: 12px 20px;
     text-decoration: none;
     border-radius: 50%;
@@ -67,4 +66,38 @@
     background-color: #165dbb;
 }
 
+/* logo header */
+
+.logo-container {
+    position: absolute;
+    top: 80px; /* Mutăm logo-ul mai jos pentru a nu fi acoperit de bara de navigare */
+    right: 20px;
+    z-index: 10;
+}
+
+.logo {
+    width: 120px;
+    height: 120px;
+}
+
+.logout-form {
+    margin-left: auto;
+    display: flex;
+    align-items: center;
+}
+
+.auth-logout-button {
+    background-color: #e74c3c;
+    color: white;
+    border: none;
+    padding: 6px 12px;
+    border-radius: 4px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.auth-logout-button:hover {
+    background-color: #c0392b;
+}
 

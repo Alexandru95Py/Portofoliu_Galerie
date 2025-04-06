@@ -1,11 +1,9 @@
 {% load static %}
 <div class="like-section">
-    <div class="like-btn">
-        <button class="like-action" data-tablou-id="{{ tablou.id }}">
-            <i class="fas fa-thumbs-up"></i>
-            <span id="like-count-{{ tablou.id }}">0</span>
-            <span class="like-label">Like</span>
-        </button>
-    </div>
+    <button class="like-action" data-tablou-id="{{ tablou.id }}">
+        <i class="fas fa-thumbs-up"></i>
+        <span id="like-count-{{ tablou.id }}">{{ tablou.likes }}</span>
+        <span class="like-label">Like</span>
+    </button>
 </div>
 <div class="like-message" id="like-message-{{ tablou.id }}" style="display: none;"></div>

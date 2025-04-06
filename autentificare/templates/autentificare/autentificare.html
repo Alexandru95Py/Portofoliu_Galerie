@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Autentificare</title>
+</head>
+<body>
+    <h2>Autentificare</h2>
+    <form method="post">
+        {% csrf_token %}
+        <label for="username">Nume utilizator:</label>
+        <input type="text" id="username" name="username" required>
+        <label for="password">Parolă:</label>
+        <input type="password" id="password" name="password" required>
+        <button type="submit">Autentifică-te</button>
+    </form>
+
+    <p>Nu ai un cont? <a href="{% url 'autentificare' %}?inregistrare=1">Înregistrează-te aici</a></p>
+</body>
+</html>

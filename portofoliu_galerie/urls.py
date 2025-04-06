@@ -32,7 +32,8 @@ urlpatterns = [
     path('despre/', despre, name='despre'),
     path('api/', include('galerie.urls')),
     path('accounts/', include('django.contrib.auth.urls')),  # Redirecționare de la /about la /despre
-]   
+    path('cont/', include('autentificare.urls')),
+]
 
 if settings.DEBUG:
     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

@@ -3,13 +3,15 @@ from .models import Tablou, Comentariu, Like
 from django.utils.timezone import now
 from django.http import JsonResponse
 from django.contrib.auth.decorators import login_required
+from django.conf import settings
 from django.views.decorators.csrf import csrf_exempt
 from rest_framework.decorators import api_view
 from rest_framework.permissions import IsAuthenticated
 from rest_framework.decorators import permission_classes
+from django.urls import reverse
 
 from rest_framework.response import Response
-from django.views.decorators. http import require_POST
+from django.views.decorators.http import require_POST
 
 def galerie_home(request):
     tablouri = Tablou.objects.all()
@@ -18,13 +20,13 @@ def galerie_home(request):
     for tablou in tablouri:
         print(f"ID: {tablou.id}, Likes: {tablou.likes}")
     return render(request, "galerie/galerie.html", {"tablouri": tablouri})
-@login_required
+
+@login_required(login_url=settings.LOGIN_URL)  # Specificăm explicit LOGIN_URL
 @require_POST
 @csrf_exempt
 def adauga_like(request, tablou_id):
     tablou = get_object_or_404(Tablou, id=tablou_id)
    
-
     if request.method == "POST":
         user = request.user
         liked = Like.objects.filter(user=user, tablou=tablou).exists()
@@ -47,13 +49,19 @@ def adauga_like(request, tablou_id):
 @csrf_exempt
 def adauga_comentariu(request, tablou_id):
     if not request.user.is_authenticated:
-        return JsonResponse({"success": False, "error": "Vă rog să vă logați pentru a comenta."})
+        autentificare_url = "http://127.0.0.1:8000/cont/autentificare/"  # Link corect către autentificare
+        inregistrare_url = "http://127.0.0.1:8000/cont/autentificare/?inregistrare=1"  # Link pentru înregistrare
+        mesaj = (
+            f"Trebuie să fii autentificat pentru a comenta. "
+            f"<a href='{autentificare_url}'>Autentificare</a> sau "
+            f"<a href='{inregistrare_url}'>Înregistrare</a>."
+        )
+        return JsonResponse({"success": False, "error": mesaj}, status=403)
 
     if request.method == "POST":
         tablou = get_object_or_404(Tablou, id=tablou_id)
         nume = request.POST.get("name", "")
         text = request.POST.get("text", "")
-        
 
         if not nume or not text:
             return JsonResponse({"success": False, "error": "Toate câmpurile sunt obligatorii"}, status=400)

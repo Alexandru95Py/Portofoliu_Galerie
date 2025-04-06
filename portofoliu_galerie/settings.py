@@ -47,18 +47,19 @@ ALLOWED_HOSTS = ['127.0.0.1', 'localhost']
 # Application definition
 
 INSTALLED_APPS = [
+     'galerie',
+    'portofoliu',
+    'administrator',
+    'django_extensions',
+    'rest_framework',
+    'debug_toolbar',
+    'autentificare',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'galerie',
-    'portofoliu',
-    'administrator',
-    'django_extensions',
-    'rest_framework',
-    'debug_toolbar',
 ]
 
 MIDDLEWARE = [
@@ -146,7 +147,8 @@ USE_TZ = True
 STATIC_URL = 'static/'
 
 # URL-ul unde utilizatorii neautentificați sunt redirecționați
-LOGIN_URL = '/accounts/login/'
+LOGIN_URL = '/cont/autentificare/'
+LOGIN_URL_REDIRECT_URL = '/'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
